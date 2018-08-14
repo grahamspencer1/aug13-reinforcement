@@ -24,15 +24,17 @@ names.each do |name|
 end
 
 ballots.each do |ballot|
-  ballot.each do |key, value|
-    if key == 1
-      tally[value] += 3
-    elsif key == 2
-      tally[value] += 2
-    elsif key == 3
-      tally[value] += 1
+  ballot.each do |position, name|
+    if position == 1
+      tally[name] += 3
+    elsif position == 2
+      tally[name] += 2
+    elsif position == 3
+      tally[name] += 1
     end
   end
 end
 
-p tally
+puts "Final count: #{tally}"
+
+puts "Therefore, #{tally.key(tally.values.max)} is the winner with #{tally.values.sort.max} votes."
